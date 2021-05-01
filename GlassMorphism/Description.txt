@@ -1,0 +1,44 @@
+This file is abou the intrinsic details of the code
+
+1.) Main section is for the background (sea-green effect)
+2.) Section with class name glass is for the glass container that we create
+3.) The circles are for the transparent circles we add besides the glass box
+4.) Class .circle1 is the one on the left and .circle2 is the one on the right. Their position has been made absolute which means relative to the the body without anything.
+NOTE: If we want its position to be absolute relative to its parent then add position: relative to the main tag CSS properties and it will be made absolute relative to the main
+5.) To construct the dashboard(The left part which has 3 sections - user, links to options and the join pro menmber section) we have created a class .dashboard
+6.) The varios options are represented through .link class
+7.) The pro section is represented by the .pro class and the user section is represented by the .user class
+8.) The .status class is for showing the 'Active Games' and the search bar.
+9.) The .cards inside .games(Which is for the right part showing the games cards and the status and search bar) shoes the list of active games and also the %age completed
+10.) The .card class has the individual cards inside .cards
+11.) The .percentage class has the information about %age of games played.
+12.) The .cards-info has information like the name of the game and the device it can be played on
+13.) The .progress class has the progress bar in it
+14.) 
+
+Topics covered:
+
+1.) Main tag
+2.) Section tag
+3.) Linear Gradient
+4.) Adding rgba in linear gradient. The a in there allows us to control the opacity.
+5.) To make perfect circles keep the height and the width of the object same.
+6.) To Put the circle behind the glass container we add z-index to the container to put it above the circles
+7.) Use of the property flex:1 from : https://www.w3schools.com/cssref/css3_pr_flex.asp
+NOTE: The flex:1 property in .dashboard and .games gives them both 50% of the total space. If flex:2 is given to .games for instance then .games is given twice the size of the .user section in the ratio 2:1
+8.) Linear Gradient - https://www.w3schools.com/csSref/func_linear-gradient.asp
+9.) We added flex-direction:column to .dashboard because to center the dashboard items we need align-items which will not be possible without display:flex. 
+The flex-direction:column makes the items go back to the way they were before adding display:flex
+10.) Added linear-gradient to .dashboard from the .glass to give the glassy effect individually to the .dashboard making it stand out in the glass container
+11.) Added border-radius to .dashboard to make it same as the glass container. The border-radius of the container and the dashboard should be same.
+12.) Box-shadow property - https://www.w3schools.com/CSSref/css3_pr_box-shadow.asp
+13.) The justify-content does not work if we apply flex-direction-align to the main item or any of its parents.
+14.) The .progress::after is used so that the progress bar does not look full and we can show progress.
+15.) We have to use content: ""; everytime we use before or after else it does not work.
+16.) We generate a new div (of sorts) by giving height and width and making position absolute in .progress::after
+17.) By giving rgb in in .progress::after a grey bar is generated. By using left property we shift the bar left and it takes the colour of the background.
+But the grey color starts overflowing. To stop it from doing so, we add overflow: hidden to .progress. Now it looks like a real bar
+18.) As with any gradient, a linear gradient has no intrinsic dimensions; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element it applies to.
+Because <gradient>s belong to the <image> data type, they can only be used where <image>s can be used. For this reason, linear-gradient() won't work on background-color and other properties that use the <color> data type.
+19.) Due to the reason of point 18 linear-gradient does not work and when we add it to percentage it draws a box of the given color. To make it work we have to use the -webkit-background-clip: text; to clip the background to just text
+20.) with the -webkit-text-fill-color: transparent only the background shows up with the linear gradient
