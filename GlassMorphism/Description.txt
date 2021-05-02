@@ -1,4 +1,4 @@
-This file is abou the intrinsic details of the code
+This file is about the intrinsic details of the code
 
 1.) Main section is for the background (sea-green effect)
 2.) Section with class name glass is for the glass container that we create
@@ -14,7 +14,6 @@ NOTE: If we want its position to be absolute relative to its parent then add pos
 11.) The .percentage class has the information about %age of games played.
 12.) The .cards-info has information like the name of the game and the device it can be played on
 13.) The .progress class has the progress bar in it
-14.) 
 
 Topics covered:
 
