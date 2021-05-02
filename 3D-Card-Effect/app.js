@@ -25,8 +25,7 @@ container.addEventListener('mouseenter', (e)=>{
     sneaker.style.transform = "translateZ(200px) rotateY(-180deg) rotateZ(-360deg)";
     desc.style.transform = "translateZ(125px)";
     sizes.style.transform = "translateZ(100px)";
-    purchase.style.transform = "translateZ(75px)";
-    
+    purchase.style.transform = "translateZ(75px)";  
 });
 
 // To remove the animation when we exit the conatiner - Animation Out
@@ -38,6 +37,5 @@ container.addEventListener('mouseleave', (e) =>{
     sneaker.style.transform = "translateZ(0px) rotateY(0deg) rotateZ(0deg)";
     desc.style.transform = "translateZ(0px)";
     sizes.style.transform = "translateZ(0px)";
-    purchase.style.transform = "translateZ(0px)";
-    
+    purchase.style.transform = "translateZ(0px)"; 
 });
