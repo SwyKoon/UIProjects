@@ -1,0 +1,39 @@
+This file is about the changes we make and why do we do so
+
+1.) The .container class ocvers the entire page and has the card inside it. The conatiner is animated and when we move out of the card does the animation stop
+2.) The .card is for the card that has the details of the shoe
+3.) The .card has a .sneaker that is divided into .sneaker for the image and .info for the title or name of the shoe
+4.) The .sneaker has a .circle and the image
+5.) The .info has the title of the shoe and its description in h3 tag. It also has a .sizes class that will show 4 buttons for the sizes with an .active class for any button to show it as marked or the chosen size
+It has a .puchase class with a button for the Purchase option.
+6.) For adding animation we need to grab the container and add an event listener to it by the name of mousemove and add an event to it e 
+7.) This e has 2 properties pageX and pageY which tell us the coordinates our mouse is on as per the page(whole page)
+8.) By adjusting the the X and the Y axes and grabbing card and then adding .syle.transform poperty to it (Do not forget to put deg in the end of the curly braces) we have animated the container
+9.) We set axes by dividing the screen width and height by 2 so that we arrive straight at the center line and then subtract e.pageX and e.pageY which sets our axes (0,0) right at the center of the screen.
+10.) The above procedure leaves a very intense effect. To lessen this effect divide the entire value of xAxis and yAxis by any number(as per the amount pof effect we want)
+11.) Put xAxis in rotateY and vice versa for rotateX so that when we move horizontally the effect is from left to right and vice versa when we move up and down. What actually happens is that on moving up and down the conatiner gets rotated about the X Axis and vice versa. So we pit oppsite axes value in rotateY and rotateX
+12.) We have added mouseout event listener and the transition property to restore the card back to its original form. We use the transiton property to change back to original form easily.
+13.) We could have added the transition property to the CSS of .card but it would have applied in both cases - when we enter the container and while exiting as well. To avoid it while entering we use the .style.transition and give it value none when entering it and give the effects - all 0.5s ease while exiting it.
+Basically we say that animate the container when we move out and do not do it when we are moving back in.
+
+TOPICS COVERED:
+
+1.) We use the body tag and add the properties we want to applicable for everything inside the body tag
+It contains the font-family for the entire page.
+2.) We have made a seperate conatiner and put the card inside it beacuse if we only animated the card and then hover right at the top of it and try to move in and out then we are going to have a glitchy effect which will show the card to be flickering.
+So we contain the animation inside the conatiner and put the card inside it
+3.) Box-Shadow (Red more about it here) - https://www.w3schools.com/CSSref/css3_pr_box-shadow.asp
+4.) To give the whole card a blur effect with different values of blur we use 
+box-shadow: 0px 20px 20px rgba(0,0,0,0.2),0px 0px 50px rgba(0,0,0,0.2)
+5.) Linear Gradient - https://www.w3schools.com/csSref/func_linear-gradient.asp
+Limitation :-
+As with any gradient, a linear gradient has no intrinsic dimensions; i.e., it has no natural or preferred size, nor a preferred ratio. Its concrete size will match the size of the element it applies to.
+Because <gradient>s belong to the <image> data type, they can only be used where <image>s can be used. For this reason, linear-gradient() won't work on background-color and other properties that use the <color> data type.
+6.) When we added linear gradient to the .circle class it did not show up with the used properties(not the one in comments) and on adding position:absolute it came behind the shoe automatically cause it got placed absolute
+Explanation of position - https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/
+7.) .style.tansform DOM - https://www.w3schools.com/jsref/prop_style_transform.asp
+8.) transform-style - https://www.w3schools.com/CSSref/css3_pr_transform-style.asp
+9.) perspective - https://www.w3schools.com/CSSref/css3_pr_perspective.asp
+10.) .style.transition DOM - https://www.w3schools.com/jsref/prop_style_transition.asp
+11.) transition - https://www.w3schools.com/cssref/css3_pr_transition.asp
+12.) Whenever we call a button class or any HTML tag inside the button tag, we first write the button and then the identifier(img,class,id etc.)
