@@ -1,0 +1,80 @@
+This file is about what all is happening in this project.
+
+1.) We have used gsap library to animate the objects. More on it here - https://cdnjs.com/libraries/gsap/3.6.1
+2.) We have used ScrollMagic library to show animations while scrolling(or scroll animations in simple words). This library triggers specific animations when we scroll.
+ScrollMagic - The javascript library for magical scroll interactions
+3.) To combine the animation effects of both the libraries we use the plugins available in ScrollMagic library(the animation.gsap.js one)
+4.) Here we have used the semnatic tag 'section' because we want to define a section or part of the website that has the image spread across the entire screen
+5.) This section has sign up part and the developed by part in the nav bar and we assign a class .button to the link sign up. Its href is emty because it is just a display site. It has a .container which has the image and the explore option and also a .content that has the images to be displayed side-on and also the 2 paras.
+6.) We put the developed by and the sign up link in the nav bar.
+7.) After the CSS of the (.container img) and adding position: absolute; the text gets hidden behind the image. So we add z-index: -1; to the img and it comes forward to the image
+To see the image again we remove the background: black from the .container and the the image becomes the background
+8.) After adding the top and left to the .main-title, to bring it to the middle we use tranform: translate();
+NOTE: This is a 2-D transition that we are doing. To bring ot exactly to the middle we use top and left to 50% and translate to -50% along both the axes. Here we have centered it along the X-Axis but we have not middlde it along the Y-axis to avoid it from covering the girl's image
+The trick to centering is to keep the top equal to the negative of the Y-axis value of transform:translate and left equal to the X-axis of the transform:translate
+9.) With gsap we can do one animation at a time but with TimelineMax() we can do multiple animations at a time and prepare a timeline for those animations
+10.) To hook the lower part(.content) at the top of the screen while scolling we use an instance of the Scene of the ScrollMagic library
+11.) To move the rock and the girl towards the top and the background towards the bottom we use the TimelineMax
+Its Description is given below in Point 8.
+
+TOPICS COVERED :-
+
+1.) Distributed Library - A distributed library is a collection of materials available for borrowing by members of a group, yet not maintained or owned by a single entity. The library catalog is maintained on a database that is made accessible to users through the Internet. 
+2.) Free JS Libraries on - https://cdnjs.com/
+3.) section tag vs div - https://bitsofco.de/sectioning-content-in-html5/
+Semantic HTML - https://www.lifewire.com/why-use-semantic-html-3468271
+4.) object-fit: cover; This is used so that we do not lose any resolutions of the picture in adjusting the width and height of the image
+5.) The addition of position: absolute; to .container img stacks them on one another.
+6.) On adding position: absolute the items of the same parent tag are stacked together in the same position
+(In this case the .container img images are stacked one on one inside the section tag area)
+7.) The tranform:translate in 2-D transition is used to perfectly center the text as stated in Point 8 above.
+8.) Intro to TimelineMax :-
+eg :
+The format is : timeline.to("object to be grabbed(identified by class name or id",duration in seconds,{property to be applied})
+NOTE: The duration in seconds is the upper limit for the animation. In simple words itna time khatam hone ke andar andar ye animation laagu krdo poori tarah se. If we scroll fast the time finishes that quickly. 
+The format for scheduling 2 different animations to 2 different objects is timeline.to(1st animation).to(2nd animation)
+timeline.to('.text',5,{x:500}).to(".content-images",2,{opacity:0});
+We can do n animation sin this manner
+
+To schedule the animations at the same time then put a coma and write the -ve value of the duration of the firsts animation. The value in this coma will start the animation the value seconds before the first animation gets over
+timeline.to('.text',2,{x:500}).to(".content-images",2,{opacity:0},"-=2");
+
+To do a from-to animation
+We include animation in the to property section 
+timeline.fromTo('.text',{opacity:0},{opacity:1,duration:3})
+
+9.) A scene defines what should happen when, meaning at which scroll position. It can trigger animations, pin an element, change element classes or anything else you might desire.
+The instance of Scene of the ScrollMagic library has parameters some of which are :-
+triggerElement: "(The tag where we want the animation to trigger". eg: triggerElement: "section",
+            It starts scene, on reaching this element 
+duration(In %age or plain number): (Pin the element for this many pixel or this %age of scrolling) eg: duartion: 100,
+            It pins the element for the specifies pixels (or %age) of scrolling. Write the %age in inverted comas.
+triggerHook: "0.6", Its value is b/w 0 and 1 and it sets a hook at this fraction of the entire screen.
+        When this hook either meets the offset point or it reaches the triggerElement upon scrolling, it starts the scene
+offset: 100, start scene after scrolling for 100px
+
+10.) If you desire multiple scenes at once you can pass them to the controller just as the example shows below:
+
+// Add Scene to ScrollMagic Controller
+controller.addScene([
+  scene1,
+  scene2,
+  scene3
+]);
+
+11.) Instead of telling the controller what scenes to add you can also tell the scene to be added to a certain controller :-
+var scene = new ScrollMagic.Scene({
+triggerElement: '#trigger1'
+})
+.addTo(controller); // Add Scene to ScrollMagic Controller
+
+var scene2 = new ScrollMagic.Scene({
+triggerElement: '#trigger2'
+})
+.addTo(controller); // Add Scene to ScrollMagic Controller
+
+In the above example we're using a technique called ”chaining” with the addTo(). If no Semicolon ends the line, we can continue adding ScrollMagic.Scene methods and ”chain” them together.
+
+12.) To hook an animation to a scene - .setTween(the animation we created)
+13.) To pin an element, add this after the screen - .setPin("object to be pinned")
+    eg: .setPin('section'); // the element we want to pin
